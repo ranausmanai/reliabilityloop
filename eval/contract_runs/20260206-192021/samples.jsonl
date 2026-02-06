@@ -1,0 +1,100 @@
+{"id": "json-01", "kind": "json", "mode": "baseline", "ok": true, "seconds": 4.06565262505319, "chars": 177}
+{"id": "json-02", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.6851547080441378, "chars": 121}
+{"id": "json-03", "kind": "json", "mode": "baseline", "ok": true, "seconds": 2.3939184169867076, "chars": 143}
+{"id": "json-04", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.6239199580159038, "chars": 120}
+{"id": "json-05", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.8064796249964274, "chars": 137}
+{"id": "json-06", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.8459078329615295, "chars": 139}
+{"id": "json-07", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.994584667030722, "chars": 122}
+{"id": "json-08", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.9339372500544414, "chars": 162}
+{"id": "json-09", "kind": "json", "mode": "baseline", "ok": true, "seconds": 3.1428524579969235, "chars": 311}
+{"id": "json-10", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.590142624976579, "chars": 137}
+{"id": "json-11", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.5976211670204066, "chars": 108}
+{"id": "json-12", "kind": "json", "mode": "baseline", "ok": true, "seconds": 3.6970742080011405, "chars": 260}
+{"id": "json-13", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.4855804159888066, "chars": 103}
+{"id": "json-14", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.5692826670128852, "chars": 125}
+{"id": "json-15", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.7985800830065273, "chars": 89}
+{"id": "json-16", "kind": "json", "mode": "baseline", "ok": true, "seconds": 3.1948837080271915, "chars": 229}
+{"id": "json-17", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.954022707999684, "chars": 155}
+{"id": "json-18", "kind": "json", "mode": "baseline", "ok": true, "seconds": 2.1991454170201905, "chars": 190}
+{"id": "json-19", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.6224621669971384, "chars": 132}
+{"id": "json-20", "kind": "json", "mode": "baseline", "ok": true, "seconds": 1.6236245830077678, "chars": 147}
+{"id": "sql-01", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 1.1253458749852143, "chars": 100}
+{"id": "sql-02", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 0.9239436669740826, "chars": 86}
+{"id": "sql-03", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 0.9917472080560401, "chars": 103}
+{"id": "sql-04", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 1.174117667018436, "chars": 119}
+{"id": "sql-05", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 1.021659834019374, "chars": 111}
+{"id": "sql-06", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 0.8416342500131577, "chars": 92}
+{"id": "sql-07", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 1.1769254590035416, "chars": 116}
+{"id": "sql-08", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 1.046639041043818, "chars": 102}
+{"id": "sql-09", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 1.0109528329921886, "chars": 106}
+{"id": "sql-10", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 0.9487492080079392, "chars": 104}
+{"id": "sql-11", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 1.0456428750185296, "chars": 102}
+{"id": "sql-12", "kind": "sql", "mode": "baseline", "ok": true, "seconds": 0.9820259169791825, "chars": 105}
+{"id": "sql-13", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 1.0557495409739204, "chars": 99}
+{"id": "sql-14", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 0.987734750029631, "chars": 92}
+{"id": "sql-15", "kind": "sql", "mode": "baseline", "ok": false, "seconds": 1.115134791994933, "chars": 106}
+{"id": "code-01", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 4.90450416598469, "chars": 582}
+{"id": "code-02", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 2.3913947920082137, "chars": 232}
+{"id": "code-03", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 4.170757416984998, "chars": 582}
+{"id": "code-04", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 1.9099734589690343, "chars": 263}
+{"id": "code-05", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.190091875032522, "chars": 371}
+{"id": "code-06", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 2.507827333989553, "chars": 309}
+{"id": "code-07", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.1270688750082627, "chars": 336}
+{"id": "code-08", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.398314416001085, "chars": 397}
+{"id": "code-09", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 2.7649228329537436, "chars": 335}
+{"id": "code-10", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.704843250045087, "chars": 391}
+{"id": "code-11", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.526022500009276, "chars": 369}
+{"id": "code-12", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 4.048498499963898, "chars": 485}
+{"id": "code-13", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 2.983784249983728, "chars": 322}
+{"id": "code-14", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 4.035465833963826, "chars": 523}
+{"id": "code-15", "kind": "codestub", "mode": "baseline", "ok": true, "seconds": 3.7210852910066023, "chars": 431}
+{"id": "json-01", "kind": "json", "mode": "contract", "ok": true, "seconds": 3.002604458015412, "chars": 185, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-02", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.82140904199332, "chars": 129, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-03", "kind": "json", "mode": "contract", "ok": true, "seconds": 2.5628541670157574, "chars": 131, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-04", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.6014247499988414, "chars": 108, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-05", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.7946262910263613, "chars": 137, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-06", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.8254656250355765, "chars": 127, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-07", "kind": "json", "mode": "contract", "ok": true, "seconds": 2.07973395800218, "chars": 110, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-08", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.9481940839905292, "chars": 150, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-09", "kind": "json", "mode": "contract", "ok": true, "seconds": 3.177799083001446, "chars": 299, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-10", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.6098631249624304, "chars": 141, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-11", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.5414512500283308, "chars": 96, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-12", "kind": "json", "mode": "contract", "ok": true, "seconds": 3.681470709037967, "chars": 256, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-13", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.4449070830014534, "chars": 91, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-14", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.5655709579586983, "chars": 133, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-15", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.791153458005283, "chars": 77, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-16", "kind": "json", "mode": "contract", "ok": true, "seconds": 3.234713833022397, "chars": 217, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-17", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.96156433300348, "chars": 155, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-18", "kind": "json", "mode": "contract", "ok": true, "seconds": 2.2130462499917485, "chars": 190, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-19", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.6287486670189537, "chars": 136, "attempts": 1, "repaired": false, "errors": []}
+{"id": "json-20", "kind": "json", "mode": "contract", "ok": true, "seconds": 1.6299852919764817, "chars": 135, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-01", "kind": "sql", "mode": "contract", "ok": true, "seconds": 4.031654332997277, "chars": 88, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-02", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.1018772500101477, "chars": 74, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-03", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.592672750004567, "chars": 95, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-04", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.1904465000261553, "chars": 103, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-05", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.612531332997605, "chars": 99, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-06", "kind": "sql", "mode": "contract", "ok": true, "seconds": 2.7273145000217482, "chars": 77, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-07", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.6146430000080727, "chars": 105, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-08", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.1702452080207877, "chars": 86, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-09", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.138321374950465, "chars": 94, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-10", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.0176851249998435, "chars": 96, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-11", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.117657499969937, "chars": 90, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-12", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.0797421250026673, "chars": 97, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-13", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.6116289169876836, "chars": 89, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-14", "kind": "sql", "mode": "contract", "ok": true, "seconds": 2.884345749975182, "chars": 80, "attempts": 1, "repaired": false, "errors": []}
+{"id": "sql-15", "kind": "sql", "mode": "contract", "ok": true, "seconds": 3.1109813330112956, "chars": 94, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-01", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 2.936715916963294, "chars": 133, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-02", "kind": "codestub", "mode": "contract", "ok": false, "seconds": 21.4556877919822, "chars": 0, "attempts": 2, "repaired": true, "errors": ["json_parse_error", "json_parse_error"]}
+{"id": "code-03", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 2.868123415973969, "chars": 113, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-04", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 15.176566042006016, "chars": 345, "attempts": 2, "repaired": true, "errors": ["json_parse_error"]}
+{"id": "code-05", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 13.667039833031595, "chars": 200, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}
+{"id": "code-06", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 12.323056292021647, "chars": 188, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}
+{"id": "code-07", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 3.659231750003528, "chars": 159, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-08", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 2.7212163750082254, "chars": 92, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-09", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 15.13506037503248, "chars": 319, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}
+{"id": "code-10", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 3.913373999996111, "chars": 180, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-11", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 11.925349667028058, "chars": 141, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}
+{"id": "code-12", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 12.681012458982877, "chars": 154, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}
+{"id": "code-13", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 2.8691654999856837, "chars": 115, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-14", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 4.548229208041448, "chars": 340, "attempts": 1, "repaired": false, "errors": []}
+{"id": "code-15", "kind": "codestub", "mode": "contract", "ok": true, "seconds": 12.207876458007377, "chars": 154, "attempts": 2, "repaired": true, "errors": ["$.functions[0].args[0]:expected_string"]}

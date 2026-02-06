@@ -1,0 +1,78 @@
+{
+  "config": {
+    "backend": "ollama",
+    "model": "llama3.2:3b",
+    "slow_model": null,
+    "prompts_file": "eval/contract_prompts.jsonl",
+    "limit": 50,
+    "max_tokens": 256,
+    "temperature": 0.0,
+    "repair_attempts": 1
+  },
+  "overall": {
+    "baseline": {
+      "count": 50,
+      "ok_rate": 0.96,
+      "avg_seconds": 3.4358639758406206,
+      "avg_chars": 183.6,
+      "repair_rate": 0.0
+    },
+    "contract": {
+      "count": 50,
+      "ok_rate": 0.68,
+      "avg_seconds": 12.417373716615838,
+      "avg_chars": 143.28,
+      "repair_rate": 0.36
+    }
+  },
+  "by_kind": {
+    "codestub": {
+      "baseline": {
+        "count": 15,
+        "ok_rate": 0.8666666666666667,
+        "avg_seconds": 5.91968760000309,
+        "avg_chars": 366.8666666666667,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 15,
+        "ok_rate": 0.7333333333333333,
+        "avg_seconds": 14.879040227869215,
+        "avg_chars": 216.73333333333332,
+        "repair_rate": 0.4
+      }
+    },
+    "json": {
+      "baseline": {
+        "count": 20,
+        "ok_rate": 1.0,
+        "avg_seconds": 2.9039755166479155,
+        "avg_chars": 116.75,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 20,
+        "ok_rate": 1.0,
+        "avg_seconds": 4.121604422744713,
+        "avg_chars": 144.55,
+        "repair_rate": 0.05
+      }
+    },
+    "sql": {
+      "baseline": {
+        "count": 15,
+        "ok_rate": 1.0,
+        "avg_seconds": 1.661224963935092,
+        "avg_chars": 89.46666666666667,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 15,
+        "ok_rate": 0.2,
+        "avg_seconds": 21.016732930523965,
+        "avg_chars": 68.13333333333334,
+        "repair_rate": 0.7333333333333333
+      }
+    }
+  }
+}

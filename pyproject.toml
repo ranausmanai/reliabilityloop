@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "testgate"
+version = "0.1.0"
+description = "TestGate: Why Evidence Beats Uncertainty for Local LLM Reliability"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Rana Muhammad Usman", email = "usmanashrafrana@gmail.com" }]
+dependencies = []
+
+[project.optional-dependencies]
+llamacpp = ["llama-cpp-python"]
+dev = ["pytest"]
+
+[project.scripts]
+testgate = "autoquality.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

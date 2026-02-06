@@ -1,0 +1,63 @@
+{
+  "fast_model": "qwen2.5-coder:7b",
+  "slow_model": "qwen2.5-coder:14b",
+  "limit": 50,
+  "timestamp": 1770327318,
+  "results": {
+    "baseline_fast": {
+      "metrics": {
+        "pass@1": 0.54
+      },
+      "seconds_generate": 369.0321413369966,
+      "seconds_eval": 10.967884165991563,
+      "seconds_total": 380.00002550298814,
+      "tasks": 50,
+      "samples_path": "eval/runs/20260206-015112/samples.baseline_fast.jsonl",
+      "eval_samples_path": "eval/runs/20260206-015112/samples.baseline_fast.normalized.jsonl",
+      "slow_used": 0,
+      "repair_attempted": 0,
+      "repair_applied": 0
+    },
+    "escalate": {
+      "metrics": {
+        "pass@1": 0.54
+      },
+      "seconds_generate": 419.23937033728,
+      "seconds_eval": 11.295363374985754,
+      "seconds_total": 430.53473371226573,
+      "tasks": 50,
+      "samples_path": "eval/runs/20260206-015112/samples.escalate.jsonl",
+      "eval_samples_path": "eval/runs/20260206-015112/samples.escalate.normalized.jsonl",
+      "slow_used": 2,
+      "repair_attempted": 0,
+      "repair_applied": 0
+    },
+    "repair": {
+      "metrics": {
+        "pass@1": 0.54
+      },
+      "seconds_generate": 447.84882287710207,
+      "seconds_eval": 11.507347791979555,
+      "seconds_total": 459.3561706690816,
+      "tasks": 50,
+      "samples_path": "eval/runs/20260206-015112/samples.repair.jsonl",
+      "eval_samples_path": "eval/runs/20260206-015112/samples.repair.normalized.jsonl",
+      "slow_used": 0,
+      "repair_attempted": 2,
+      "repair_applied": 1
+    }
+  },
+  "config": {
+    "entropy_threshold": 0.65,
+    "margin_threshold": 0.08,
+    "min_uncertain_tokens": 10,
+    "max_tokens": 256,
+    "temperature": 0.0,
+    "repair": {
+      "max_spans": 3,
+      "window_tokens": 8,
+      "max_edits": 2,
+      "max_tokens": 256
+    }
+  }
+}

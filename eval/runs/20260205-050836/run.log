@@ -1,0 +1,12 @@
+Reading samples...
+0it [00:00, ?it/s]50it [00:00, 20796.83it/s]
+Traceback (most recent call last):
+  File "/Users/usman/Documents/New project/eval/humaneval_runner.py", line 230, in <module>
+    main()
+  File "/Users/usman/Documents/New project/eval/humaneval_runner.py", line 162, in main
+    metrics = evaluation.evaluate_functional_correctness(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/human_eval/evaluation.py", line 73, in evaluate_functional_correctness
+    assert len(completion_id) == len(problems), "Some problems are not attempted."
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Some problems are not attempted.

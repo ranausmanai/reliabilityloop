@@ -1,0 +1,16 @@
+[baseline_fast] generated 5/10 tasks
+[baseline_fast] generated 10/10 tasks
+Reading samples...
+0it [00:00, ?it/s]10it [00:00, 10727.12it/s]
+Running test suites...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:00<00:07,  1.21it/s] 50%|█████     | 5/10 [00:01<00:01,  3.12it/s] 90%|█████████ | 9/10 [00:02<00:00,  4.53it/s]100%|██████████| 10/10 [00:02<00:00,  4.32it/s]
+Writing results to eval/runs/20260206-041004/samples.baseline_fast.normalized.jsonl_results.jsonl...
+  0%|          | 0/10 [00:00<?, ?it/s]100%|██████████| 10/10 [00:00<00:00, 41692.88it/s]
+[testgate] generated 5/10 tasks
+[testgate] generated 10/10 tasks
+Reading samples...
+0it [00:00, ?it/s]10it [00:00, 4430.45it/s]
+Running test suites...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:01<00:09,  1.04s/it] 50%|█████     | 5/10 [00:01<00:01,  2.80it/s] 90%|█████████ | 9/10 [00:02<00:00,  3.94it/s]100%|██████████| 10/10 [00:02<00:00,  3.74it/s]
+Writing results to eval/runs/20260206-041004/samples.testgate.normalized.jsonl_results.jsonl...
+  0%|          | 0/10 [00:00<?, ?it/s]100%|██████████| 10/10 [00:00<00:00, 38908.20it/s]

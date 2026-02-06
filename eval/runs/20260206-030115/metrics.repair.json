@@ -1,0 +1,14 @@
+{
+  "metrics": {
+    "pass@1": 0.42
+  },
+  "seconds_generate": 942.599477752985,
+  "seconds_eval": 11.643711959011853,
+  "seconds_total": 954.2431897119968,
+  "tasks": 50,
+  "samples_path": "eval/runs/20260206-030115/samples.repair.jsonl",
+  "eval_samples_path": "eval/runs/20260206-030115/samples.repair.normalized.jsonl",
+  "slow_used": 0,
+  "repair_attempted": 18,
+  "repair_applied": 15
+}

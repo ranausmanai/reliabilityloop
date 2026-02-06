@@ -1,0 +1,78 @@
+{
+  "config": {
+    "backend": "ollama",
+    "model": "qwen2.5-coder:7b",
+    "slow_model": null,
+    "prompts_file": "eval/contract_prompts.jsonl",
+    "limit": 50,
+    "max_tokens": 256,
+    "temperature": 0.0,
+    "repair_attempts": 1
+  },
+  "overall": {
+    "baseline": {
+      "count": 50,
+      "ok_rate": 0.7,
+      "avg_seconds": 4.7158344366773965,
+      "avg_chars": 198.38,
+      "repair_rate": 0.0
+    },
+    "contract": {
+      "count": 50,
+      "ok_rate": 1.0,
+      "avg_seconds": 8.031705460059456,
+      "avg_chars": 153.3,
+      "repair_rate": 0.06
+    }
+  },
+  "by_kind": {
+    "codestub": {
+      "baseline": {
+        "count": 15,
+        "ok_rate": 1.0,
+        "avg_seconds": 6.957403672199386,
+        "avg_chars": 367.4,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 15,
+        "ok_rate": 1.0,
+        "avg_seconds": 12.92527474714055,
+        "avg_chars": 228.46666666666667,
+        "repair_rate": 0.2
+      }
+    },
+    "json": {
+      "baseline": {
+        "count": 20,
+        "ok_rate": 1.0,
+        "avg_seconds": 4.791454318742035,
+        "avg_chars": 141.75,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 20,
+        "ok_rate": 1.0,
+        "avg_seconds": 5.03966044174449,
+        "avg_chars": 144.75,
+        "repair_rate": 0.0
+      }
+    },
+    "sql": {
+      "baseline": {
+        "count": 15,
+        "ok_rate": 0.0,
+        "avg_seconds": 2.3734386917358887,
+        "avg_chars": 104.86666666666666,
+        "repair_rate": 0.0
+      },
+      "contract": {
+        "count": 15,
+        "ok_rate": 1.0,
+        "avg_seconds": 7.127529530731651,
+        "avg_chars": 89.53333333333333,
+        "repair_rate": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "metrics": {
+    "pass@1": 0.82
+  },
+  "seconds_generate": 1896.5307259658002,
+  "seconds_eval": 26.886673499946482,
+  "seconds_total": 1923.4173994657467,
+  "tasks": 100,
+  "samples_path": "eval/runs/20260206-041930/samples.testgate.jsonl",
+  "eval_samples_path": "eval/runs/20260206-041930/samples.testgate.normalized.jsonl",
+  "slow_used": 50,
+  "repair_attempted": 0,
+  "repair_applied": 0,
+  "gate_attempted": 100,
+  "gate_fast_passed": 50,
+  "gate_slow_passed": 32
+}

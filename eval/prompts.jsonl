@@ -1,0 +1,5 @@
+{"id":"dev-1","prompt":"Write a Python function that parses a URL into (scheme, host, port, path). Include edge cases."}
+{"id":"dev-2","prompt":"Given an array of integers, return the length of the longest increasing subsequence. Explain time complexity."}
+{"id":"dev-3","prompt":"Explain the difference between concurrency and parallelism with a small code example."}
+{"id":"dev-4","prompt":"Debug this error: 'TypeError: unhashable type: list' in Python. Give the most likely causes and fixes."}
+

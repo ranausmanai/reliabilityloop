@@ -1,0 +1,14 @@
+{
+  "metrics": {
+    "pass@1": 1.0
+  },
+  "seconds_generate": 109.17532799998298,
+  "seconds_eval": 0.7024984579766169,
+  "seconds_total": 109.8778264579596,
+  "tasks": 2,
+  "samples_path": "eval/runs/smoke-20260205-153221/samples.escalate.jsonl",
+  "eval_samples_path": "eval/runs/smoke-20260205-153221/samples.escalate.normalized.jsonl",
+  "slow_used": 0,
+  "repair_attempted": 0,
+  "repair_applied": 0
+}

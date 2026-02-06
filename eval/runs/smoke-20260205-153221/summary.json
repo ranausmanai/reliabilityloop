@@ -1,0 +1,63 @@
+{
+  "fast_model": "glm-4.7-flash:latest",
+  "slow_model": "qwen2.5-coder:14b",
+  "limit": 2,
+  "timestamp": 1770289346,
+  "results": {
+    "baseline_fast": {
+      "metrics": {
+        "pass@1": 1.0
+      },
+      "seconds_generate": 291.7472079990548,
+      "seconds_eval": 0.7185002079932019,
+      "seconds_total": 292.465708207048,
+      "tasks": 2,
+      "samples_path": "eval/runs/smoke-20260205-153221/samples.baseline_fast.jsonl",
+      "eval_samples_path": "eval/runs/smoke-20260205-153221/samples.baseline_fast.normalized.jsonl",
+      "slow_used": 0,
+      "repair_attempted": 0,
+      "repair_applied": 0
+    },
+    "escalate": {
+      "metrics": {
+        "pass@1": 1.0
+      },
+      "seconds_generate": 109.17532799998298,
+      "seconds_eval": 0.7024984579766169,
+      "seconds_total": 109.8778264579596,
+      "tasks": 2,
+      "samples_path": "eval/runs/smoke-20260205-153221/samples.escalate.jsonl",
+      "eval_samples_path": "eval/runs/smoke-20260205-153221/samples.escalate.normalized.jsonl",
+      "slow_used": 0,
+      "repair_attempted": 0,
+      "repair_applied": 0
+    },
+    "repair": {
+      "metrics": {
+        "pass@1": 1.0
+      },
+      "seconds_generate": 220.8425540419994,
+      "seconds_eval": 0.6521915420307778,
+      "seconds_total": 221.49474558403017,
+      "tasks": 2,
+      "samples_path": "eval/runs/smoke-20260205-153221/samples.repair.jsonl",
+      "eval_samples_path": "eval/runs/smoke-20260205-153221/samples.repair.normalized.jsonl",
+      "slow_used": 0,
+      "repair_attempted": 0,
+      "repair_applied": 0
+    }
+  },
+  "config": {
+    "entropy_threshold": 0.65,
+    "margin_threshold": 0.08,
+    "min_uncertain_tokens": 10,
+    "max_tokens": 256,
+    "temperature": 0.0,
+    "repair": {
+      "max_spans": 3,
+      "window_tokens": 8,
+      "max_edits": 2,
+      "max_tokens": 256
+    }
+  }
+}
