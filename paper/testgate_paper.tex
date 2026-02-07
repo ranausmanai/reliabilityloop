@@ -251,6 +251,11 @@ All experiments use local models via Ollama:
 
 All experiments run on consumer hardware (Apple M4, 24GB RAM).
 
+\textbf{Reproducibility.} All runs use the same 50 HumanEval tasks (IDs 0--49 plus 100--113).
+Artifacts are archived in the repository: 7B baseline and evidence-gating from
+\texttt{eval/runs/unified-paper/}, 14B baseline from \texttt{eval/runs/baseline-14b/},
+uncertainty routing from \texttt{eval/runs/20260205-162415/}.
+
 \section{Results}
 
 \subsection{Code Generation (HumanEval)}
@@ -418,7 +423,7 @@ strategies. Our key contributions:
       Models are often confident when wrong and uncertain when correct.
 
 \item \textbf{Evidence-gating works}: Using test execution as the escalation signal improves
-      pass@1 by 18 percentage points (0.54 to 0.72) with zero false positives.
+      pass@1 by 18 percentage points (0.54 to 0.72), escalating only on observed test failure.
 
 \item \textbf{Model-dependent strategies}: Contract-first generation helps code-specialized
       models dramatically but hurts general-purpose models.
