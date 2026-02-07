@@ -22,7 +22,7 @@
 \begin{abstract}
 Local language models offer privacy and low cost but frequently produce unreliable outputs---
 malformed JSON, failing code, or invalid SQL. We present \textbf{TestGate}, an open-source
-framework implementing three complementary reliability strategies: (1) \textit{uncertainty-based
+toolkit providing three reliability strategies as separate modes: (1) \textit{uncertainty-based
 routing} using token-level entropy and margin from logprobs, (2) \textit{evidence-gated routing}
 using test execution to decide escalation, and (3) \textit{contract-first generation} using
 JSON schema validation with repair loops.
@@ -51,7 +51,7 @@ API-level structured outputs~\cite{openai_structured_outputs}, and prompt engine
 a different approach: \textit{post-generation reliability strategies} that work with any local
 model without modifying the inference engine.
 
-We present \textbf{TestGate}, a framework implementing three strategies:
+We present \textbf{TestGate}, a toolkit with three strategies:
 
 \begin{enumerate}
 \item \textbf{Uncertainty-based routing}: Use token-level logprobs to estimate confidence.
@@ -106,10 +106,10 @@ Instructor~\cite{instructor} validates against Pydantic schemas with retry.
 Jsonformer~\cite{jsonformer} guarantees JSON structure by generating only variable portions.
 Our contract-first approach adds compilation to executable artifacts (SQL, code).
 
-\section{The TestGate Framework}
+\section{The TestGate Toolkit}
 
-TestGate provides a unified interface for reliability strategies. Given a prompt and model
-configuration, it returns a validated output along with metadata about which strategy was applied.
+TestGate provides three reliability strategies as separate CLI modes. Each mode takes a prompt
+and model configuration, returning output along with metadata about the strategy applied.
 
 \begin{figure}[h]
 \centering
@@ -213,10 +213,11 @@ For structured outputs (JSON, SQL, code stubs), we decompose generation into ste
 
 For SQL, the contract is a JSON AST:
 \begin{verbatim}
-{"columns": [...], "table": "...",
- "where_clauses": [...], "order_by": [...]}
+{"select": ["col1", "col2"], "from": "users",
+ "where": [{"col": "age", "op": ">", "val": 18}],
+ "order_by": [{"col": "name", "dir": "ASC"}]}
 \end{verbatim}
-which compiles to: \texttt{SELECT ... FROM ... WHERE ... ORDER BY ...}
+which compiles to: \texttt{SELECT col1, col2 FROM users WHERE age > 18 ORDER BY name ASC}
 
 This moves syntactic correctness from the model to the compiler.
 
@@ -224,8 +225,9 @@ This moves syntactic correctness from the model to the compiler.
 
 \subsection{Tasks and Benchmarks}
 
-\textbf{Code generation.} HumanEval~\cite{humaneval} (50 tasks). We measure pass@1 with
-execution-based evaluation.
+\textbf{Code generation.} HumanEval~\cite{humaneval}, subset of 50 tasks (the first 50 by task ID).
+We measure pass@1 with execution-based evaluation. All results are from runs archived in the
+repository under \texttt{eval/runs/}.
 
 \textbf{Structured output.} Custom benchmark with 50 prompts: 20 JSON extraction,
 15 SQL generation, 15 Python code stubs. We measure syntactic validity.
@@ -376,8 +378,7 @@ Based on our findings, we recommend:
 Task & Tests Available? & Model Type & Recommended Strategy \\
 \midrule
 Code & Yes & Any & \textbf{Evidence-gating} \\
-Code & No & Code-specialized & Uncertainty (cautiously) \\
-Code & No & General & Baseline only \\
+Code & No & Any & Baseline (no reliable signal) \\
 \midrule
 SQL/JSON & No & Code-specialized & \textbf{Contract-first} \\
 SQL/JSON & No & General & Baseline only \\
@@ -409,7 +410,7 @@ However, the fundamental issue (semantic vs. syntactic confidence) likely remain
 
 \section{Conclusion}
 
-We presented TestGate, a framework for improving local LLM reliability through adaptive
+We presented TestGate, a toolkit for improving local LLM reliability through adaptive
 strategies. Our key contributions:
 
 \begin{enumerate}
