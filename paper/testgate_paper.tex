@@ -225,9 +225,8 @@ This moves syntactic correctness from the model to the compiler.
 
 \subsection{Tasks and Benchmarks}
 
-\textbf{Code generation.} HumanEval~\cite{humaneval}, subset of 50 tasks (the first 50 by task ID).
-We measure pass@1 with execution-based evaluation. All results are from runs archived in the
-repository under \texttt{eval/runs/}.
+\textbf{Code generation.} HumanEval~\cite{humaneval}, subset of 50 tasks.
+We measure pass@1 with execution-based evaluation.
 
 \textbf{Structured output.} Custom benchmark with 50 prompts: 20 JSON extraction,
 15 SQL generation, 15 Python code stubs. We measure syntactic validity.
@@ -251,7 +250,7 @@ All experiments use local models via Ollama:
 
 All experiments run on consumer hardware (Apple M4, 24GB RAM).
 
-\textbf{Reproducibility.} All runs use the same 50 HumanEval tasks (IDs 0--49 plus 100--113).
+\textbf{Reproducibility.} All runs use the same 50 HumanEval tasks (IDs: 0, 1, 10--14, 100--142).
 Artifacts are archived in the repository: 7B baseline and evidence-gating from
 \texttt{eval/runs/unified-paper/}, 14B baseline from \texttt{eval/runs/baseline-14b/},
 uncertainty routing from \texttt{eval/runs/20260205-162415/}.
