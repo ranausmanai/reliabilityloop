@@ -30,7 +30,7 @@ JSON schema validation with repair loops.
 We evaluate these strategies on HumanEval (code) and structured output tasks (JSON, SQL).
 Our key finding is counter-intuitive: \textbf{uncertainty-based routing hurts code generation}
 (pass@1 drops from 0.54 to 0.42), while \textbf{evidence-gated routing helps significantly}
-(pass@1 improves from 0.54 to 0.72, an 18 percentage point gain). For structured outputs, contract-first generation improves validity
+(pass@1 improves from 0.54 to 0.72, beating even the larger model alone at 0.68). For structured outputs, contract-first generation improves validity
 dramatically for code-specialized models (0.70 to 1.00) but can hurt general-purpose models.
 
 We provide practical guidelines: use evidence-gating when tests exist, contract-first for
@@ -259,11 +259,12 @@ All experiments run on consumer hardware (Apple M4, 24GB RAM).
 \toprule
 Strategy & Pass@1 & Gen Time (s) & Slow Used & Change \\
 \midrule
-Baseline (fast only) & 0.54 & 543 & 0\% & --- \\
+Baseline (7b only) & 0.54 & 543 & 0\% & --- \\
+Baseline (14b only) & 0.68 & 669 & 100\% & +14\% \\
 Uncertainty $\rightarrow$ Escalate & 0.52 & 874 & 36\% & \textcolor{red}{-2\%} \\
 Uncertainty $\rightarrow$ Repair & 0.42 & 943 & n/a & \textcolor{red}{-12\%} \\
 \midrule
-Evidence-Gating & \textbf{0.72} & 1109 & 46\% & \textcolor{green}{+18\%} \\
+Evidence-Gating (7b$\rightarrow$14b) & \textbf{0.72} & 1109 & 46\% & \textcolor{green}{+18\%} \\
 \bottomrule
 \end{tabular}
 \caption{HumanEval results. Uncertainty-based routing hurts; evidence-gating helps.}
@@ -350,8 +351,9 @@ problem entirely.
 
 The pass@1 gain is substantial: 54\% to 72\% (+18 points). Of 50 tasks, 27 passed immediately
 on the fast model, and of the 23 that failed and escalated, the slow model fixed 9.
-While 46\% of tasks escalated (vs. 36\% for uncertainty routing), escalation was \textit{always
-warranted}---there were no false positives.
+Crucially, evidence-gating (72\%) even beats using the 14b model alone (68\%), while using
+the slow model for only 46\% of tasks. This shows the value of selective escalation:
+the fast model's correct outputs are preserved, while failures get a second chance.
 
 \subsection{Why Does Contract-First Depend on Model Type?}
 
