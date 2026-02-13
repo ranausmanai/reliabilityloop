@@ -1,0 +1,63 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ReliabilityLoop leaderboard preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#121A2B"/>
+    </linearGradient>
+    <filter id="cardShadow" x="0" y="0" width="1200" height="560" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 34px ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #E6EDF7; }
+      .subtitle { font: 500 16px ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #9FB0CA; }
+      .th { font: 700 15px ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #BFD0EA; }
+      .td { font: 600 16px ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #E6EDF7; }
+      .small { font: 500 13px ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #A9B9D3; }
+      .ok { fill: #24C68A; }
+      .warn { fill: #FFCC66; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="560" fill="url(#bg)"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="64" y="58" width="1072" height="444" rx="16" fill="#0E1627" stroke="#22304A"/>
+  </g>
+
+  <text x="92" y="110" class="title">ReliabilityLoop Leaderboard (v1 / 60 tasks)</text>
+  <text x="92" y="138" class="subtitle">Verifier-based scoring across JSON, SQL, and Python code generation</text>
+
+  <rect x="92" y="165" width="1016" height="44" rx="10" fill="#16233A"/>
+  <text x="112" y="193" class="th">Model</text>
+  <text x="430" y="193" class="th">Policy Reliability</text>
+  <text x="642" y="193" class="th">JSON</text>
+  <text x="750" y="193" class="th">SQL</text>
+  <text x="850" y="193" class="th">Code</text>
+  <text x="955" y="193" class="th">Policy Latency</text>
+
+  <rect x="92" y="219" width="1016" height="66" rx="10" fill="#111C30"/>
+  <text x="112" y="258" class="td">qwen2.5-coder:0.5b</text>
+  <text x="448" y="258" class="td ok">0.867</text>
+  <text x="650" y="258" class="td ok">1.000</text>
+  <text x="758" y="258" class="td ok">1.000</text>
+  <text x="860" y="258" class="td warn">0.600</text>
+  <text x="975" y="258" class="td">2.428s</text>
+
+  <rect x="92" y="293" width="1016" height="66" rx="10" fill="#0F1A2D"/>
+  <text x="112" y="332" class="td">llama3.2:3b</text>
+  <text x="448" y="332" class="td">0.850</text>
+  <text x="650" y="332" class="td ok">1.000</text>
+  <text x="758" y="332" class="td ok">1.000</text>
+  <text x="860" y="332" class="td warn">0.550</text>
+  <text x="975" y="332" class="td">2.612s</text>
+
+  <rect x="92" y="367" width="1016" height="66" rx="10" fill="#0D1728"/>
+  <text x="112" y="406" class="td">qwen2.5-coder:1.5b</text>
+  <text x="448" y="406" class="td">0.883</text>
+  <text x="650" y="406" class="td ok">1.000</text>
+  <text x="758" y="406" class="td ok">1.000</text>
+  <text x="860" y="406" class="td">0.650</text>
+  <text x="975" y="406" class="td">2.801s</text>
+
+  <text x="92" y="465" class="small">Metric: passed tasks / total tasks, where each task must pass executable verification.</text>
+</svg>

@@ -3,10 +3,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
 [![Status](https://img.shields.io/badge/Status-Alpha-orange.svg)](RELEASE.md)
+[![Policy Reliability](https://img.shields.io/badge/Policy%20Reliability-86.7%25-24C68A.svg)](examples/leaderboard_60_baseline.md)
+[![Tasks](https://img.shields.io/badge/Tasks-60-informational.svg)](eval/reliability_v1_60.jsonl)
+[![Hugging%20Face%20Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow.svg)](https://huggingface.co/datasets/ranausmans/reliabilityloop-v1)
+[![Release](https://img.shields.io/badge/Release-v0.2.0--alpha-2ea44f.svg)](https://github.com/ranausmanai/reliabilityloop/releases/tag/v0.2.0-alpha)
 
 Verifier-driven framework for improving local LLM reliability with adaptive inference.
 
 ReliabilityLoop evaluates whether model outputs actually work (not just look plausible), then applies runtime strategies to improve reliability under cost and latency constraints.
+
+![ReliabilityLoop Leaderboard Preview](assets/leaderboard_preview.svg)
 
 ## Why ReliabilityLoop
 
