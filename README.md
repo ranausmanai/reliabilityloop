@@ -1,14 +1,38 @@
 # ReliabilityLoop
 
-Verifier-driven framework for improving local LLM reliability with adaptive inference, built from TestGate research components.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
+[![Status](https://img.shields.io/badge/Status-Alpha-orange.svg)](RELEASE.md)
 
-## What TestGate Does
+Verifier-driven framework for improving local LLM reliability with adaptive inference.
 
-- Evaluates models on executable tasks (`json`, `sql`, `codestub`)
-- Uses strict verifiers (schema checks, SQL execution, Python unit tests)
-- Supports policy routing (`baseline_first` / `contract_first`)
-- Supports adaptive compute (`best-of-k`, per-task budgets)
-- Supports verified memory reuse (`wins.jsonl`)
+ReliabilityLoop evaluates whether model outputs actually work (not just look plausible), then applies runtime strategies to improve reliability under cost and latency constraints.
+
+## Why ReliabilityLoop
+
+- Executable reliability checks: JSON schema, SQL execution, Python unit tests
+- Policy routing: choose `baseline_first` or `contract_first` per task type
+- Adaptive compute: per-task `best-of-k` and per-task token budgets
+- Verified memory reuse: reuse proven outputs from earlier runs (`wins.jsonl`)
+- Reproducible artifacts: every run outputs `summary.json`, `leaderboard.md`, `samples.jsonl`, `wins.jsonl`
+
+## Benchmark Scope (v1)
+
+Canonical split: `eval/reliability_v1_60.jsonl`
+
+- 20 JSON tasks
+- 20 SQL tasks
+- 20 code tasks
+
+Spec: `eval/RELIABILITY_V1_SPEC.md`
+
+## Baseline Result (Example)
+
+From `examples/leaderboard_60_baseline.md` on `qwen2.5-coder:0.5b`:
+
+| model | policy reliability | json | sql | code | policy latency (s) |
+|---|---:|---:|---:|---:|---:|
+| `qwen2.5-coder:0.5b` | 0.867 | 1.000 | 1.000 | 0.600 | 2.428 |
 
 ## Install
 
@@ -18,9 +42,7 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
-## Quickstart (Framework)
-
-Run the canonical 60-task split:
+## Quick Start
 
 ```bash
 reliabilityloop reliability \
@@ -34,11 +56,7 @@ reliabilityloop reliability \
   --policy-code baseline_first
 ```
 
-Artifacts written to `eval/reliability_runs/<timestamp>/`:
-- `summary.json`
-- `leaderboard.md`
-- `samples.jsonl`
-- `wins.jsonl`
+Outputs are saved to `eval/reliability_runs/<timestamp>/`.
 
 ## Adaptive Inference Example
 
@@ -59,14 +77,14 @@ reliabilityloop reliability \
 ## Verified Memory Example
 
 ```bash
-# 1) Run once and produce wins
+# first run
 RUN_A=$(reliabilityloop reliability \
   --backend ollama \
   --model qwen2.5-coder:0.5b \
   --prompts-file eval/reliability_v1_60.jsonl \
   --limit 60 | sed -n 's/^- outdir: //p')
 
-# 2) Re-run with memory from verified wins
+# second run with memory
 reliabilityloop reliability \
   --backend ollama \
   --model qwen2.5-coder:0.5b \
@@ -76,11 +94,9 @@ reliabilityloop reliability \
   --memory-top-k 2
 ```
 
-## Benchmark Assets
+## Hugging Face Dataset
 
-- Spec: `eval/RELIABILITY_V1_SPEC.md`
-- Canonical split: `eval/reliability_v1_60.jsonl`
-- Example output: `examples/leaderboard_60_baseline.md`
+- https://huggingface.co/datasets/ranausmans/reliabilityloop-v1
 
 ## Release Docs
 
