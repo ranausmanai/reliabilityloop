@@ -7,12 +7,13 @@ from dataclasses import asdict
 
 from autoquality.bench import run_bench
 from autoquality.contracts import run_contract
+from autoquality.reliability import ReliabilityConfig, run_reliability
 from autoquality.repair import RepairConfig
 from autoquality.router import RouteConfig, Router
 
 
 def _build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="autoquality")
+    parser = argparse.ArgumentParser(prog="reliabilityloop")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     gen = sub.add_parser("generate", help="Generate text with auto-quality routing.")
@@ -69,6 +70,32 @@ def _build_parser() -> argparse.ArgumentParser:
     contract.add_argument("--max-tokens", type=int, default=256)
     contract.add_argument("--temperature", type=float, default=0.0)
     contract.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+
+    reliability = sub.add_parser("reliability", help="Run reliability benchmark for JSON/SQL/code tasks.")
+    reliability.add_argument("--backend", choices=["mock", "llamacpp", "ollama"], default="mock")
+    reliability.add_argument("--model", help="Single model identifier.")
+    reliability.add_argument("--models", help="Comma-separated model identifiers.")
+    reliability.add_argument("--slow-model", help="Optional slow model for contract repairs.")
+    reliability.add_argument("--prompts-file", default="eval/reliability_v1_60.jsonl")
+    reliability.add_argument("--tasks", default="json,sql,codestub", help="Comma-separated subset of: json,sql,codestub")
+    reliability.add_argument("--limit", type=int, default=50)
+    reliability.add_argument("--max-tokens", type=int, default=256)
+    reliability.add_argument("--max-tokens-json", type=int, default=None)
+    reliability.add_argument("--max-tokens-sql", type=int, default=None)
+    reliability.add_argument("--max-tokens-code", type=int, default=None)
+    reliability.add_argument("--temperature", type=float, default=0.0)
+    reliability.add_argument("--repair-attempts", type=int, default=1)
+    reliability.add_argument("--best-of-k", type=int, default=1, help="Try up to K candidates and stop early on first pass.")
+    reliability.add_argument("--best-of-k-json", type=int, default=None)
+    reliability.add_argument("--best-of-k-sql", type=int, default=None)
+    reliability.add_argument("--best-of-k-code", type=int, default=None)
+    reliability.add_argument("--memory-file", default=None, help="JSONL of verified wins to retrieve from.")
+    reliability.add_argument("--memory-top-k", type=int, default=0, help="How many retrieved wins to prepend.")
+    reliability.add_argument("--policy-json", choices=["baseline_first", "contract_first"], default="contract_first")
+    reliability.add_argument("--policy-sql", choices=["baseline_first", "contract_first"], default="baseline_first")
+    reliability.add_argument("--policy-code", choices=["baseline_first", "contract_first"], default="baseline_first")
+    reliability.add_argument("--outdir", default=None)
+    reliability.add_argument("--json", action="store_true", help="Emit machine-readable JSON summary.")
 
     return parser
 
@@ -146,7 +173,7 @@ def main() -> None:
             sys.stdout.write(json.dumps(report, ensure_ascii=False) + "\n")
         else:
             sys.stdout.write(
-                "autoquality bench\n"
+                "reliabilityloop bench\n"
                 f"- prompts: {report['prompts']}\n"
                 f"- used_fast: {report['used_fast']}\n"
                 f"- used_slow: {report['used_slow']}\n"
@@ -187,6 +214,74 @@ def main() -> None:
                 sys.stderr.write(
                     f"[autoquality] contract ok kind={result.kind} attempts={result.attempts} repaired={result.repaired} model={result.used_model}\n"
                 )
+        return
+
+    if args.cmd == "reliability":
+        model_list: list[str] = []
+        if args.model:
+            model_list.append(args.model)
+        if args.models:
+            model_list.extend([m.strip() for m in args.models.split(",") if m.strip()])
+        if not model_list:
+            raise SystemExit("Provide --model or --models for reliability benchmark.")
+        tasks = [t.strip() for t in args.tasks.split(",") if t.strip()]
+        valid_tasks = {"json", "sql", "codestub"}
+        if not tasks or any(t not in valid_tasks for t in tasks):
+            raise SystemExit("Invalid --tasks. Allowed values: json,sql,codestub")
+
+        task_k_map: dict[str, int] = {}
+        if args.best_of_k_json is not None:
+            task_k_map["json"] = max(1, args.best_of_k_json)
+        if args.best_of_k_sql is not None:
+            task_k_map["sql"] = max(1, args.best_of_k_sql)
+        if args.best_of_k_code is not None:
+            task_k_map["codestub"] = max(1, args.best_of_k_code)
+
+        policy_mode_map = {
+            "json": args.policy_json,
+            "sql": args.policy_sql,
+            "codestub": args.policy_code,
+        }
+        max_tokens_map: dict[str, int] = {}
+        if args.max_tokens_json is not None:
+            max_tokens_map["json"] = max(1, args.max_tokens_json)
+        if args.max_tokens_sql is not None:
+            max_tokens_map["sql"] = max(1, args.max_tokens_sql)
+        if args.max_tokens_code is not None:
+            max_tokens_map["codestub"] = max(1, args.max_tokens_code)
+
+        cfg = ReliabilityConfig(
+            backend=args.backend,
+            models=model_list,
+            prompts_file=args.prompts_file,
+            tasks=tasks,
+            limit=args.limit,
+            max_tokens=args.max_tokens,
+            temperature=args.temperature,
+            repair_attempts=args.repair_attempts,
+            slow_model=args.slow_model,
+            best_of_k=max(1, args.best_of_k),
+            task_k_map=task_k_map or None,
+            memory_file=args.memory_file,
+            memory_top_k=max(0, args.memory_top_k),
+            policy_mode_map=policy_mode_map,
+            max_tokens_map=max_tokens_map or None,
+        )
+        summary = run_reliability(cfg, outdir=args.outdir)
+        if args.json:
+            sys.stdout.write(json.dumps(summary, ensure_ascii=False) + "\n")
+        else:
+            outdir = summary["outdir"]
+            leader = summary["leaderboard"][0]
+            sys.stdout.write(
+                "reliabilityloop reliability\n"
+                f"- outdir: {outdir}\n"
+                f"- models: {len(summary['leaderboard'])}\n"
+                f"- tasks: {summary['task_count']}\n"
+                f"- best_model: {leader['model']}\n"
+                f"- best_reliability: {leader['overall']['policy_ok_rate']:.3f}\n"
+                f"- leaderboard: {outdir}/leaderboard.md\n"
+            )
         return
 
 

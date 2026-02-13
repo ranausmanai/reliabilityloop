@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "testgate"
-version = "0.1.0"
-description = "TestGate: Why Evidence Beats Uncertainty for Local LLM Reliability"
+name = "reliabilityloop"
+version = "0.2.0"
+description = "Verifier-driven framework for local LLM reliability and adaptive inference"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -17,6 +17,7 @@ llamacpp = ["llama-cpp-python"]
 dev = ["pytest"]
 
 [project.scripts]
+reliabilityloop = "autoquality.cli:main"
 testgate = "autoquality.cli:main"
 
 [tool.setuptools]

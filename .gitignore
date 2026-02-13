@@ -10,3 +10,6 @@ venv/
 dist/
 build/
 
+
+# Generated benchmark artifacts
+eval/reliability_runs/

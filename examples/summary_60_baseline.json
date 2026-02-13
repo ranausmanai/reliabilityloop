@@ -1,0 +1,83 @@
+{
+  "config": {
+    "backend": "ollama",
+    "models": [
+      "qwen2.5-coder:0.5b"
+    ],
+    "slow_model": null,
+    "prompts_file": "eval/reliability_v1_60.jsonl",
+    "tasks": [
+      "json",
+      "sql",
+      "codestub"
+    ],
+    "limit": 60,
+    "max_tokens": 96,
+    "temperature": 0.0,
+    "repair_attempts": 1,
+    "best_of_k": 1,
+    "task_k_map": {},
+    "memory_file": null,
+    "memory_top_k": 0,
+    "memory_entries_loaded": 0,
+    "policy_mode_map": {
+      "json": "contract_first",
+      "sql": "baseline_first",
+      "codestub": "baseline_first"
+    },
+    "max_tokens_map": {}
+  },
+  "task_count": 60,
+  "leaderboard": [
+    {
+      "model": "qwen2.5-coder:0.5b",
+      "overall": {
+        "baseline_ok_rate": 0.8666666666666667,
+        "contract_ok_rate": 0.3333333333333333,
+        "policy_ok_rate": 0.8666666666666667,
+        "avg_latency_s": 4.573403206213455,
+        "policy_avg_latency_s": 2.4276108388594975,
+        "avg_attempts": 1.6666666666666667,
+        "retry_rate": 0.6666666666666666,
+        "success_after_retry_rate": 0.0,
+        "avg_candidates_baseline": 1,
+        "avg_candidates_contract": 1,
+        "avg_candidates_policy": 1.1333333333333333
+      },
+      "by_task": {
+        "codestub": {
+          "baseline_ok_rate": 0.6,
+          "contract_ok_rate": 0.0,
+          "policy_ok_rate": 0.6,
+          "avg_latency_s": 5.346673812397057,
+          "policy_avg_latency_s": 3.950306572788395,
+          "retry_rate": 1.0,
+          "avg_candidates": 1,
+          "policy_avg_candidates": 1.4
+        },
+        "json": {
+          "baseline_ok_rate": 1.0,
+          "contract_ok_rate": 1.0,
+          "policy_ok_rate": 1.0,
+          "avg_latency_s": 2.5247750646376517,
+          "policy_avg_latency_s": 2.5247750646376517,
+          "retry_rate": 0.0,
+          "avg_candidates": 1,
+          "policy_avg_candidates": 1
+        },
+        "sql": {
+          "baseline_ok_rate": 1.0,
+          "contract_ok_rate": 0.0,
+          "policy_ok_rate": 1.0,
+          "avg_latency_s": 5.848760741605656,
+          "policy_avg_latency_s": 0.8077508791524451,
+          "retry_rate": 1.0,
+          "avg_candidates": 1,
+          "policy_avg_candidates": 1
+        }
+      }
+    }
+  ],
+  "generated_at": "20260213-150758",
+  "outdir": "eval/reliability_runs/20260213-150758"
+}
