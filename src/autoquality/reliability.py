@@ -598,7 +598,14 @@ def _sql_matches_expected(text: str, item: dict[str, Any]) -> bool:
             rows = table.get("rows", [])
             if rows:
                 placeholders = ", ".join("?" for _ in cols)
-                cur.executemany(f"INSERT INTO {name} VALUES ({placeholders})", rows)
+                normalized_rows = []
+                col_names = [c[0] for c in cols]
+                for r in rows:
+                    if isinstance(r, dict):
+                        normalized_rows.append(tuple(r.get(c) for c in col_names))
+                    else:
+                        normalized_rows.append(tuple(r))
+                cur.executemany(f"INSERT INTO {name} VALUES ({placeholders})", normalized_rows)
 
         cur.execute(sql)
         actual_rows = cur.fetchall()
@@ -625,7 +632,13 @@ def _sql_matches_expected(text: str, item: dict[str, Any]) -> bool:
         return False
 
     actual = [_normalize_row(r) for r in actual_rows]
-    target = [_normalize_row(tuple(r)) for r in expected_rows]
+    expected_cols_for_rows = expected.get("columns") if isinstance(expected.get("columns"), list) else []
+    target = []
+    for r in expected_rows:
+        if isinstance(r, dict):
+            target.append(_normalize_row(tuple(r.get(c) for c in expected_cols_for_rows)))
+        else:
+            target.append(_normalize_row(tuple(r)))
     if order_sensitive:
         return all(_values_equal(a, b) for a, b in zip(actual, target))
 
